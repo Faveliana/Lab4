@@ -22,8 +22,8 @@ import javax.swing.event.MenuListener;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 
-    private static final int WIDTH = 700;
-    private static final int HEIGHT = 500;
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 600;
 
     private JFileChooser fileChooser = null;
 
@@ -137,9 +137,6 @@ public class MainFrame extends JFrame {
             return;
         }
     }
-
-
-
     // Класс-слушатель событий, связанных с отображением меню
     private class GraphicsMenuListener implements MenuListener {
         // Обработчик, вызываемый перед показом меню
