@@ -275,11 +275,19 @@ public class GraphicsDisplay extends JPanel {
         canvas.setFont(axisFont);
         // Создать объект контекста отображения текста - для получения характеристик устройства (экрана)
         FontRenderContext context = canvas.getFontRenderContext();
-        Rectangle2D centerBounds = axisFont.getStringBounds("0", context);
-        Point2D.Double centerLabelPos = xyToPoint(0, 0);
+        Rectangle2D centerBounds = axisFont.getStringBounds("0",context);
+        Point2D.Double centerLabelPos = xyToPoint(0,0);
+        canvas.drawString("0",(float)centerLabelPos.getX()+10,(float)(centerLabelPos.getY()-centerBounds.getY()));
+
+        Point2D.Double center = xyToPoint(0,1);
+        canvas.draw(new Line2D.Double(center, shiftPoint(center, -5.5, 1)));
+        canvas.draw(new Line2D.Double(center, shiftPoint(center, 5.5, 1)));
+        canvas.drawString("1",(float)centerLabelPos.getX()+10,(float)(centerLabelPos.getY()-50));
+        centerBounds = axisFont.getStringBounds("0", context);
+        /*Point2D.Double centerLabelPos = xyToPoint(0, 0);
         canvas.drawString("0", (float)centerLabelPos.getX() + 10,
                 (float)(centerLabelPos.getY() - centerBounds.getY()));
-        // Определить, должна ли быть видна ось Y на графике
+        // Определить, должна ли быть видна ось Y на графике*/
         if (minX <= 0.0 && maxX >= 0.0) {
             // Она должна быть видна, если левая граница показываемой области (minX) <= 0.0, а правая (maxX) >= 0.0
             // Сама ось - это линия между точками (0, maxY) и (0, minY)
